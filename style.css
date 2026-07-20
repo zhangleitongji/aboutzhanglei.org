@@ -1,3 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em 1.5em;
+}
+
+.pub-list {
+  padding-left: 1.2em;
+  line-height: 1.7;
+}
+
+.pub-list li {
+  margin-bottom: 0.6em;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
 .profile {
   display: flex;
   align-items: stretch;
