@@ -8,9 +8,8 @@ body {
 }
 
 main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2em 1.5em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .pub-list {
