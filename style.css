@@ -31,9 +31,10 @@ main {
 }
 
 .avatar {
-  width: 160px;
+  width: 100px;
   align-self: stretch;
   object-fit: cover;
+  object-position: top;
   flex-shrink: 0;
 }
 
@@ -94,7 +95,7 @@ h2 {
 }
 
 nav {
-  font-size: 0.9em;
+  font-size: 0em;
   margin-bottom: 2em;
 }
 
