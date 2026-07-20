@@ -158,25 +158,37 @@ header.sub nav { font-size: 0.9em; }
   margin: 1.5em 0 2em;
 }
 
-.team-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2.5em;
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 2em 1em;
+  margin-bottom: 3em;
 }
-.team-list li {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8em;
-  padding: 0.6em 0;
-  border-bottom: 1px solid #f0f0f0;
-  align-items: baseline;
-}
-.team-list li:last-child { border-bottom: none; }
 
-.team-name { font-weight: 500; min-width: 5em; }
-.team-year { color: #999; font-size: 0.9em; min-width: 5em; }
-.team-topic { color: #555; font-size: 0.9em; flex: 1; }
-.team-list.alumni .team-name { color: #666; }
+.team-card {
+  text-align: center;
+}
+
+.team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.8em;
+}
+
+.team-name {
+  font-weight: 500;
+  font-size: 0.95em;
+  margin-bottom: 0.2em;
+  line-height: 1.4;
+}
+
+.team-year {
+  color: #999;
+  font-size: 0.85em;
+}
+
 
 /* 手机端 */
 @media (max-width: 480px) {
