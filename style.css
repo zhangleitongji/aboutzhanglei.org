@@ -171,3 +171,25 @@ header.sub nav { font-size: 0.9em; }
   }
   .avatar { width: 140px; height: auto; }
 }
+
+/* 首页学术动态：竖排 */
+#home-news-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+/* 首页每条动态里的图片保持横向并排、大小统一 */
+#home-news-grid .news-images {
+  display: flex;
+  gap: 0.5em;
+}
+
+#home-news-grid .news-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: none;
+}
