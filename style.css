@@ -6,171 +6,240 @@ body {
   padding: 3em 1.5em;
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.7;
-  color: #333;
+  line-height: 1.75;
+  color: #222;
+  background: #fff;
   overflow-x: hidden;
 }
 
-main {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 a {
-  color: #333;
-  text-decoration: none;
-  border-bottom: 1px solid #ccc;
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-a:hover {
-  border-bottom-color: #333;
+a:hover { color: #666; }
+
+h1 {
+  font-size: 1.6em;
+  font-weight: 600;
+  margin: 0 0 0.3em;
+}
+h1 .en {
+  font-weight: 400;
+  color: #888;
+  font-size: 0.7em;
 }
 
-/* ---------- 头部：照片 + 姓名信息 ---------- */
+h2 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 2em 0 0.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eee;
+}
+
+.title {
+  color: #555;
+  margin: 0 0 1.5em;
+  font-size: 0.95em;
+}
+
+/* 头像与姓名区块 */
 .profile {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 1.5em;
   margin-bottom: 1.5em;
 }
 
 .avatar {
-  width: 180px;
-  height: auto;
+  width: 160px;
   object-fit: cover;
   object-position: top;
   flex-shrink: 0;
-  border-radius: 4px;
+  align-self: stretch;
 }
 
-.profile-text h1 {
-  margin: 0 0 0.3em 0;
-  font-size: 1.6em;
-}
+.profile-text h1 { margin: 0 0 0.3em; }
+.profile-text .title { margin: 0; }
 
-.profile-text p {
-  margin: 0.2em 0;
-  color: #555;
-}
-
-/* ---------- 导航栏 ---------- */
+/* 导航栏 —— 修复了 font-size:0 的 bug */
 nav {
-  margin: 1.5em 0 2em 0;
   font-size: 0.95em;
+  margin-bottom: 2em;
 }
-nav a {
-  margin-right: 1.2em;
-  border-bottom: none;
-  color: #666;
-}
-nav a:hover {
-  color: #000;
-}
+nav a { margin-right: 0.2em; }
 
-/* ---------- 出版物列表 ---------- */
+/* 列表 */
 .pub-list {
   padding-left: 1.2em;
-  margin: 0.5em 0 1.5em 0;
+  line-height: 1.7;
 }
 .pub-list li {
   margin-bottom: 0.6em;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+ul.selected, ul.recent, ul.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.selected li, ul.recent li, ul.pub-list li {
+  padding: 0.4em 0;
+  border-bottom: 1px solid #f5f5f5;
   font-size: 0.95em;
-  color: #333;
 }
 
-h2 {
-  margin-top: 2em;
-  font-size: 1.2em;
+footer {
+  margin-top: 4em;
+  padding-top: 1.5em;
+  border-top: 1px solid #eee;
+  font-size: 0.9em;
+  color: #777;
+}
+
+header.sub { margin-bottom: 3em; }
+header.sub .back {
+  font-weight: 500;
+  text-decoration: none;
+  color: #111;
+  display: block;
+  margin-bottom: 1em;
+}
+header.sub nav { font-size: 0.9em; }
+
+/* 动态页 */
+.news-list { margin-top: 2em; }
+.news-item {
+  padding-bottom: 2.5em;
+  margin-bottom: 2.5em;
   border-bottom: 1px solid #eee;
-  padding-bottom: 0.3em;
+}
+.news-item:last-child { border-bottom: none; }
+
+.news-date {
+  font-size: 0.85em;
+  color: #999;
+  margin: 0 0 0.2em;
+  letter-spacing: 0.05em;
+}
+.news-item h3 {
+  font-size: 1.05em;
+  font-weight: 500;
+  margin: 0 0 0.8em;
 }
 
-/* ---------- 研究团队 ---------- */
-.team-list {
+.news-gallery {
   display: flex;
+  gap: 0.6em;
   flex-wrap: wrap;
-  gap: 1.5em;
-  margin: 1em 0 2em 0;
+  margin-bottom: 1em;
 }
-.team-member {
+.news-gallery img {
+  width: 100%;
+  max-width: 280px;
+  height: 180px;
+  object-fit: cover;
+  filter: grayscale(15%);
+  transition: filter 0.3s;
+}
+.news-gallery img:hover { filter: grayscale(0%); }
+
+.news-text {
+  color: #333;
+  font-size: 0.95em;
+}
+
+/* 团队页 */
+.team-intro {
+  color: #555;
+  margin: 1.5em 0 2em;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 2em 1em;
+  margin-bottom: 3em;
+}
+
+.team-card {
   text-align: center;
-  width: 100px;
 }
-.team-avatar {
-  width: 90px;
-  height: 90px;
+
+.team-photo {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.8em;
 }
+
 .team-name {
+  font-weight: 500;
   font-size: 0.95em;
-  font-weight: bold;
+  margin-bottom: 0.2em;
+  line-height: 1.4;
 }
+
 .team-year {
   color: #999;
   font-size: 0.85em;
 }
-.team-topic {
-  color: #666;
-  font-size: 0.8em;
-}
-.team-list.alumni .team-name {
-  color: #666;
-}
 
-/* ---------- 学术动态：卡片网格 ---------- */
+
+/* 手机端 */
+@media (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .avatar { width: 140px; height: auto; }
+}
+/* 学术动态 - 卡片网格 */
 .news-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5em;
-  margin: 1.5em 0;
-}
-
-.news-card {
-  display: flex;
-  flex-direction: column;
+  margin-top: 1.5em;
 }
 
 .news-images {
   display: flex;
   gap: 0.4em;
-  margin-bottom: 0.6em;
 }
-
 .news-images img {
   width: 100%;
-  height: 140px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 4px;
-  cursor: zoom-in;
+  border-radius: 6px;
+  cursor: pointer;
   display: block;
 }
 
-/* 单图情况：图片占满整卡宽度 */
-.news-card:has(.news-images img:only-child) .news-images img {
-  height: 180px;
-}
-
-.news-text {
+.news-card p {
+  margin-top: 0.6em;
   font-size: 0.9em;
-  color: #444;
+  color: #333;
   line-height: 1.5;
 }
 
-.news-date {
-  font-size: 0.8em;
-  color: #999;
-  margin-top: 0.3em;
+/* 手机端：单列 */
+@media (max-width: 480px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* ---------- 灯箱（点击图片放大） ---------- */
+/* 灯箱弹窗 */
 .lightbox {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0,0,0,0.85);
   z-index: 999;
   justify-content: center;
@@ -182,29 +251,4 @@ h2 {
   max-width: 90%;
   max-height: 90%;
   border-radius: 4px;
-}
-
-/* ---------- 页脚 ---------- */
-footer {
-  margin-top: 3em;
-  padding-top: 1.5em;
-  border-top: 1px solid #eee;
-  font-size: 0.9em;
-  color: #888;
-}
-
-/* ---------- 手机端适配 ---------- */
-@media (max-width: 480px) {
-  .profile {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-  .avatar {
-    width: 140px;
-    height: auto;
-  }
-  .news-grid {
-    grid-template-columns: 1fr;
-  }
-}
+}“这是全部代码”
