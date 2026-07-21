@@ -172,24 +172,36 @@ header.sub nav { font-size: 0.9em; }
   .avatar { width: 140px; height: auto; }
 }
 
-/* 首页学术动态：竖排 */
+/* 首页学术动态：强制竖排 */
 #home-news-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2em !important;
 }
 
-/* 首页每条动态里的图片保持横向并排、大小统一 */
-#home-news-grid .news-images {
+/* 每条动态内部：图片固定小尺寸，横向并排 */
+#home-news-grid .news-card {
   display: flex;
+  flex-direction: column;
+}
+
+#home-news-grid .news-images {
+  display: flex !important;
   gap: 0.5em;
+  margin-bottom: 0.8em;
 }
 
 #home-news-grid .news-img {
-  width: 120px;
-  height: 120px;
+  width: 140px !important;
+  height: 140px !important;
   object-fit: cover;
   border-radius: 4px;
   cursor: pointer;
-  flex: none;
+  flex: none !important;
+}
+
+#home-news-grid .news-text {
+  font-size: 0.95em;
+  color: #333;
+  line-height: 1.6;
 }
