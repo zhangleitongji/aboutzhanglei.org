@@ -199,3 +199,52 @@ header.sub nav { font-size: 0.9em; }
   }
   .avatar { width: 140px; height: auto; }
 }
+/* 学术动态 - 卡片网格 */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+}
+
+.news-card p {
+  margin-top: 0.6em;
+  font-size: 0.9em;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* 手机端：单列 */
+@media (max-width: 480px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 灯箱弹窗 */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+}
