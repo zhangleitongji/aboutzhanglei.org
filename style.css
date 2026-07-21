@@ -95,13 +95,12 @@ header.sub nav { font-size: 0.9em; }
   gap: 0.5em;
   margin-bottom: 0.8em;
 }
-.news-images img {
-  flex: 1;
-  height: 180px;
+.news-img {
+  width: 100%;
+  height: 200px;       /* 和其他图片保持一致的高度，可根据实际效果调整数值 */
   object-fit: cover;
-  border-radius: 6px;
   cursor: zoom-in;
-  display: block;
+  border-radius: 4px;
 }
 
 .news-text {
