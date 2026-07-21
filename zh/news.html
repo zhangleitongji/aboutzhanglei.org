@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>学术动态 - 张磊</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="profile">
+  <img src="../images/avatar.png" alt="张磊" class="avatar">
+  <div class="profile-text">
+    <h1>张磊 ZHANG Lei</h1>
+    <p>同济大学设计创意学院 副院长</p>
+    <p>上海国际设计创新学院 副院长</p>
+    <p>设计教育教学研究中心 主任</p>
+  </div>
+</div>
+
+<nav>
+  <a href="../index.html">首页</a>
+  <a href="cv.html">简历</a>
+  <a href="research.html">研究</a>
+  <a href="publications.html">出版</a>
+  <a href="exhibitions.html">展览</a>
+  <a href="talks.html">演讲</a>
+  <a href="news.html">动态</a>
+  <a href="team.html">团队</a>
+  <a href="contact.html">联系</a>
+</nav>
+
+<main>
+
+<h1>学术动态</h1>
+
+<div class="news-grid">
+
+  <div class="news-card">
+    <img src="../images/news/photo1.jpg" alt="动态图片" onclick="openLightbox(this)">
+    <p>2024年11月，受邀参加清华大学设计学院学术论坛，作主题演讲。</p>
+  </div>
+
+  <div class="news-card">
+    <img src="../images/news/photo2.jpg" alt="动态图片" onclick="openLightbox(this)">
+    <p>2024年10月，赴日本东京参加国际设计史学会年会并发表论文。</p>
+  </div>
+
+  <div class="news-card">
+    <img src="../images/news/photo3.jpg" alt="动态图片" onclick="openLightbox(this)">
+    <p>2024年9月，主持"设计新质力"主题展览开幕式。</p>
+  </div>
+
+  <!-- 之后每新增一条动态，就复制上面这一整块 <div class="news-card">...</div> 粘贴在这里，改图片路径和文字即可 -->
+
+</div>
+
+</main>
+
+<!-- 灯箱弹窗结构 -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<footer>
+  <p>Email: <a href="mailto:zhanglei.henry@tongji.edu.cn">zhanglei.henry@tongji.edu.cn</a></p>
+</footer>
+
+<script>
+function openLightbox(imgElement) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  lightboxImg.src = imgElement.src;
+  lightbox.style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
