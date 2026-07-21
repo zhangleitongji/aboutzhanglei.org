@@ -34,24 +34,15 @@
 
 <h1>学术动态</h1>
 
-<div class="news-grid">
+<div class="news-grid" id="news-grid">
 
-  <div class="news-card">
-    <img src="../images/news/photo1.jpg" alt="动态图片" onclick="openLightbox(this)">
-    <p>2024年11月，受邀参加清华大学设计学院学术论坛，作主题演讲。</p>
+  <!-- 以后新增动态，复制一整块粘贴在这里【任意位置都可以】，会自动按 data-date 从新到旧排序 -->
+
+  <div class="news-card" data-date="2027-07-07">
+    <img src="../images/news/教育部重大.jpg" alt="动态图片" onclick="openLightbox(this)">
+    <p>2027年7月7日，张磊教授在清华大学召开的“教育部中国特色哲学社会科学研究重大专项——中国设计学自主知识体系构建研究”启动会上作重大项目汇报。</p>
   </div>
 
-  <div class="news-card">
-    <img src="../images/news/photo2.jpg" alt="动态图片" onclick="openLightbox(this)">
-    <p>2024年10月，赴日本东京参加国际设计史学会年会并发表论文。</p>
-  </div>
-
-  <div class="news-card">
-    <img src="../images/news/photo3.jpg" alt="动态图片" onclick="openLightbox(this)">
-    <p>2024年9月，主持"设计新质力"主题展览开幕式。</p>
-  </div>
-
-  <!-- 之后每新增一条动态，就复制上面这一整块 <div class="news-card">...</div> 粘贴在这里，改图片路径和文字即可 -->
 
 </div>
 
@@ -67,6 +58,13 @@
 </footer>
 
 <script>
+// 自动按 data-date 从新到旧排序
+const grid = document.getElementById('news-grid');
+const cards = Array.from(grid.getElementsByClassName('news-card'));
+cards.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+cards.forEach(card => grid.appendChild(card));
+
+// 灯箱功能
 function openLightbox(imgElement) {
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
