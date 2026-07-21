@@ -207,7 +207,11 @@ header.sub nav { font-size: 0.9em; }
   margin-top: 1.5em;
 }
 
-.news-card img {
+.news-images {
+  display: flex;
+  gap: 0.4em;
+}
+.news-images img {
   width: 100%;
   height: 180px;
   object-fit: cover;
