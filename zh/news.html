@@ -23,30 +23,43 @@
 
 <main>
 
+<main>
+
 <h1>学术动态</h1>
 
-<div class="news-grid" id="news-grid">
-
-  <!-- 以后新增动态，复制一整块粘贴在这里【任意位置都可以】，会自动按 data-date 从新到旧排序 -->
-
- <div class="news-card" data-date="2026-07-07">
+<div class="news-card">
   <div class="news-images">
-    <img src="../images/jybzd.jpeg" alt="动态图片" onclick="openLightbox(this)">
-    <img src="../images/jybzd2.jpg" alt="动态图片" onclick="openLightbox(this)">
+    <img src="../images/jybzd.jpeg" class="news-img" onclick="openLightbox(this)">
+    <img src="../images/jybzd2.jpg" class="news-img" onclick="openLightbox(this)">
   </div>
-  <p>2026年7月7日，张磊教授在清华大学召开的"教育部中国特色哲学社会科学研究重大专项——中国设计学自主知识体系构建研究"启动会上作重大项目汇报。</p>
+  <p class="news-text">2026年7月7日，张磊教授在清华大学召开的"教育部中国特色哲学社会科学研究重大专项——中国设计学自主知识体系构建研究"启动会上作重大项目汇报。</p>
 </div>
-  
- <div class="news-card" data-date="2026-07-03">
+
+<div class="news-card">
   <div class="news-images">
-    <img src="../images/byd1.jpg" alt="动态图片" onclick="openLightbox(this)">
-    <img src="../images/byd2.jpg" alt="动态图片" onclick="openLightbox(this)">
+    <img src="../images/byd1.jpg" class="news-img" onclick="openLightbox(this)">
+    <img src="../images/byd2.jpg" class="news-img" onclick="openLightbox(this)">
   </div>
-  <p>2026年7月3日，张磊教授在杭州运河文化发布中心参加比亚迪智能座舱UI设计颁奖典礼。</p>
+  <p class="news-text">2026年7月3日，张磊教授在杭州运河文化发布中心参加比亚迪智能座舱UI设计颁奖典礼。</p>
 </div>
 
+</main>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
 </div>
 
+<script>
+function openLightbox(imgElement) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  lightboxImg.src = imgElement.src;
+  lightbox.style.display = 'flex';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+</script>
 </main>
 
 <!-- 灯箱弹窗结构 -->
