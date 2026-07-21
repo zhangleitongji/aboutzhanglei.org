@@ -12,23 +12,11 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  color: #111;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
+a { color: #111; text-decoration: underline; text-underline-offset: 3px; }
 a:hover { color: #666; }
 
-h1 {
-  font-size: 1.6em;
-  font-weight: 600;
-  margin: 0 0 0.3em;
-}
-h1 .en {
-  font-weight: 400;
-  color: #888;
-  font-size: 0.7em;
-}
+h1 { font-size: 1.6em; font-weight: 600; margin: 0 0 0.3em; }
+h1 .en { font-weight: 400; color: #888; font-size: 0.7em; }
 
 h2 {
   font-size: 1em;
@@ -38,11 +26,7 @@ h2 {
   border-bottom: 1px solid #eee;
 }
 
-.title {
-  color: #555;
-  margin: 0 0 1.5em;
-  font-size: 0.95em;
-}
+.title { color: #555; margin: 0 0 1.5em; font-size: 0.95em; }
 
 /* 头像与姓名区块 */
 .profile {
@@ -51,7 +35,6 @@ h2 {
   gap: 1.5em;
   margin-bottom: 1.5em;
 }
-
 .avatar {
   width: 160px;
   object-fit: cover;
@@ -59,32 +42,19 @@ h2 {
   flex-shrink: 0;
   align-self: stretch;
 }
-
 .profile-text h1 { margin: 0 0 0.3em; }
 .profile-text .title { margin: 0; }
 
-/* 导航栏 —— 修复了 font-size:0 的 bug */
-nav {
-  font-size: 0.95em;
-  margin-bottom: 2em;
-}
+/* 导航栏 */
+nav { font-size: 0.95em; margin-bottom: 2em; }
 nav a { margin-right: 0.2em; }
 
-/* 列表 */
-.pub-list {
-  padding-left: 1.2em;
-  line-height: 1.7;
-}
-.pub-list li {
-  margin-bottom: 0.6em;
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
-}
+/* 出版物列表 */
+.pub-list { padding-left: 1.2em; line-height: 1.7; }
+.pub-list li { margin-bottom: 0.6em; word-wrap: break-word; overflow-wrap: anywhere; }
 
 ul.selected, ul.recent, ul.pub-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; padding: 0; margin: 0;
 }
 ul.selected li, ul.recent li, ul.pub-list li {
   padding: 0.4em 0;
@@ -110,27 +80,38 @@ header.sub .back {
 }
 header.sub nav { font-size: 0.9em; }
 
-/* 动态页 */
-.news-card {
-  margin-bottom: 2.5em;
-}
-.news-images {
-  display: flex;
-  gap: 0.6em;
-}
-.news-images img {
-  width: 50%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 4px;
-  cursor: zoom-in;
-}
-.news-text {
-  margin-top: 0.8em;
-  color: #333;
-  line-height: 1.7;
+/* ===== 学术动态：卡片 + 图片组（唯一版本，已去重） ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em 1.5em;
+  margin-top: 1.5em;
 }
 
+.news-card { }
+
+.news-images {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 0.8em;
+}
+.news-images img {
+  flex: 1;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: zoom-in;
+  display: block;
+}
+
+.news-text {
+  color: #333;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== 灯箱弹窗（唯一版本，已去重） ===== */
 .lightbox {
   display: none;
   position: fixed;
@@ -147,21 +128,14 @@ header.sub nav { font-size: 0.9em; }
   border-radius: 4px;
 }
 
-/* 手机端：图片改为上下堆叠，避免太挤 */
+/* 手机端：动态图片改为1列，每条动态2张图仍左右并排 */
 @media (max-width: 480px) {
-  .news-images {
-    flex-direction: column;
-  }
-  .news-images img {
-    width: 100%;
-    height: 220px;
-  }
-
-/* 团队页 */
-.team-intro {
-  color: #555;
-  margin: 1.5em 0 2em;
+  .news-grid { grid-template-columns: 1fr; }
+  .news-images img { height: 220px; }
 }
+
+/* ===== 团队页（现在能正常在桌面端生效了） ===== */
+.team-intro { color: #555; margin: 1.5em 0 2em; }
 
 .team-grid {
   display: grid;
@@ -169,33 +143,20 @@ header.sub nav { font-size: 0.9em; }
   gap: 2em 1em;
   margin-bottom: 3em;
 }
-
-.team-card {
-  text-align: center;
-}
+.team-card { text-align: center; }
 
 .team-photo {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 0.8em;
+  margin: 0 auto 0.8em;
+  display: block;
 }
+.team-name { font-weight: 500; font-size: 0.95em; margin-bottom: 0.2em; line-height: 1.4; }
+.team-year { color: #999; font-size: 0.85em; }
 
-.team-name {
-  font-weight: 500;
-  font-size: 0.95em;
-  margin-bottom: 0.2em;
-  line-height: 1.4;
-}
-
-.team-year {
-  color: #999;
-  font-size: 0.85em;
-}
-
-
-/* 手机端 */
+/* 手机端：头像区块 */
 @media (max-width: 480px) {
   .profile {
     flex-direction: column;
@@ -203,57 +164,4 @@ header.sub nav { font-size: 0.9em; }
     text-align: left;
   }
   .avatar { width: 140px; height: auto; }
-}
-/* 学术动态 - 卡片网格 */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5em;
-  margin-top: 1.5em;
-}
-
-.news-images {
-  display: flex;
-  gap: 0.4em;
-}
-.news-images img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-  cursor: pointer;
-  display: block;
-}
-
-.news-card p {
-  margin-top: 0.6em;
-  font-size: 0.9em;
-  color: #333;
-  line-height: 1.5;
-}
-
-/* 手机端：单列 */
-@media (max-width: 480px) {
-  .news-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 灯箱弹窗 */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85);
-  z-index: 999;
-  justify-content: center;
-  align-items: center;
-  cursor: zoom-out;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 4px;
 }
