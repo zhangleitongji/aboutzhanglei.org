@@ -46,18 +46,42 @@
     主持国家及省部级项目5项，出版著作5本，发表国内外核心期刊论文70余篇。
     曾担任环同济设计周总协调人、"新兴实践"设计教育与研究会议主席和世界设计之都大会主题展联合策展人，
     并深度参与世界设计之都大会（WDCC，2022-2025）的筹备工作。
+  </p>
 
-
-  
-
-  <h2>动态</h2>
-  <ul class="recent">
-    <li>2026.02 · DRS2026 · 爱丁堡 <a href="zh/news.html">查看更多 →</a></li>
-    <li>2025.11 · 第14届"新兴实践"设计教育与研究会议 主席</li>
-    <li>2025 · "晒上海·序幕"展 策展人</li>
-  </ul>
+  <section class="home-news">
+    <h2>学术动态</h2>
+    <div class="news-grid" id="home-news-grid">
+      <!-- 内容由下方脚本自动从 news.html 读取，无需手动填写 -->
+    </div>
+    <p><a href="zh/news.html">查看全部动态 →</a></p>
+  </section>
 </main>
 
+<footer>
+  <p>Email: <a href="mailto:zhanglei.henry@tongji.edu.cn">zhanglei.henry@tongji.edu.cn</a></p>
+</footer>
+
+<script>
+fetch('zh/news.html')
+  .then(response => response.text())
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const cards = Array.from(doc.querySelectorAll('.news-card'));
+    cards.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+    const topCards = cards.slice(0, 3);
+    const homeGrid = document.getElementById('home-news-grid');
+    topCards.forEach(card => {
+      card.querySelectorAll('img').forEach(img => {
+        const src = img.getAttribute('src');
+        img.setAttribute('src', src.replace('../images/', 'images/'));
+        img.removeAttribute('onclick');
+      });
+      homeGrid.appendChild(card);
+    });
+  })
+  .catch(err => console.log('动态加载失败：', err));
+</script>
 
 </body>
 </html>
