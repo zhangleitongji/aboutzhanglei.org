@@ -196,8 +196,6 @@ h2 {
 }
 
 #home-news-grid .news-img {
-  width: 66px;
-  height: 66px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 4px;
