@@ -88,11 +88,14 @@ header.sub nav { font-size: 0.9em; }
   margin-top: 1.5em;
 }
 
-.news-card { }
-
-.news-images {
-  display: flex;
-  gap: 0.5em;
+.news-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* 强制正方形 */
+  object-fit: cover;         /* 保证不变形，裁切多余部分 */
+  object-position: center;   /* 从中心裁切，人像不容易被切掉头 */
+  border-radius: 4px;
+  cursor: zoom-in;
+  display: block;
 }
 
 .news-images img {
