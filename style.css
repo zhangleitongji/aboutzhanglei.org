@@ -283,3 +283,6 @@ footer {
     flex-direction: row;
   }
 }
+#home-news-grid .news-images img:nth-child(n+2) {
+  display: none;
+}
