@@ -1,4 +1,6 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   max-width: 680px;
@@ -6,141 +8,103 @@ body {
   padding: 3em 1.5em;
   font-family: -apple-system, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.75;
-  color: #222;
-  background: #fff;
-  overflow-x: hidden;
+  line-height: 1.7;
+  color: #333;
 }
 
-a { color: #111; text-decoration: underline; text-underline-offset: 3px; }
-a:hover { color: #666; }
-
-h1 { font-size: 1.6em; font-weight: 600; margin: 0 0 0.3em; }
-h1 .en { font-weight: 400; color: #888; font-size: 0.7em; }
-
-h2 {
-  font-size: 1em;
-  font-weight: 600;
-  margin: 2em 0 0.8em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid #eee;
+a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
 }
 
-.title { color: #555; margin: 0 0 1.5em; font-size: 0.95em; }
+a:hover {
+  border-bottom-color: #333;
+}
 
-/* 头像与姓名区块 */
+/* 顶部：照片 + 姓名/职位 */
 .profile {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 1.5em;
   margin-bottom: 1.5em;
 }
+
 .avatar {
   width: 160px;
+  height: 160px;
+  border-radius: 4px;
   object-fit: cover;
   object-position: top;
   flex-shrink: 0;
-  align-self: stretch;
 }
-.profile-text h1 { margin: 0 0 0.3em; }
-.profile-text .title { margin: 0; }
+
+.profile-text {
+  flex: 1;
+}
+
+.profile-text h1 {
+  margin: 0 0 0.3em;
+  font-size: 1.4em;
+}
+
+.profile-text p {
+  margin: 0.2em 0;
+  color: #555;
+  font-size: 0.95em;
+}
 
 /* 导航栏 */
-nav { font-size: 0.95em; margin-bottom: 2em; }
-nav a { margin-right: 0.2em; }
+nav {
+  margin: 1.5em 0 2em;
+  font-size: 0.95em;
+}
+
+nav a {
+  margin-right: 1em;
+  border-bottom: none;
+  color: #555;
+}
+
+nav a:hover {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+main {
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.15em;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3em;
+}
 
 /* 出版物列表 */
-.pub-list { padding-left: 1.2em; line-height: 1.7; }
-.pub-list li { margin-bottom: 0.6em; word-wrap: break-word; overflow-wrap: anywhere; }
-
-ul.selected, ul.recent, ul.pub-list {
-  list-style: none; padding: 0; margin: 0;
+.pub-list {
+  padding-left: 1.2em;
+  margin: 0.5em 0 1.5em;
 }
-ul.selected li, ul.recent li, ul.pub-list li {
-  padding: 0.4em 0;
-  border-bottom: 1px solid #f5f5f5;
+
+.pub-list li {
+  margin-bottom: 0.6em;
   font-size: 0.95em;
 }
 
-footer {
-  margin-top: 4em;
-  padding-top: 1.5em;
-  border-top: 1px solid #eee;
-  font-size: 0.9em;
-  color: #777;
-}
-
-header.sub { margin-bottom: 3em; }
-header.sub .back {
-  font-weight: 500;
-  text-decoration: none;
-  color: #111;
-  display: block;
-  margin-bottom: 1em;
-}
-header.sub nav { font-size: 0.9em; }
-
-/* ===== 学术动态：卡片 + 图片组（唯一版本，已去重） ===== */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2em 1.5em;
-  margin-top: 1.5em;
-}
-
-.news-img {
-  width: 100%;
-  aspect-ratio: 1 / 1;      /* 强制正方形 */
-  object-fit: cover;         /* 保证不变形，裁切多余部分 */
-  object-position: center;   /* 从中心裁切，人像不容易被切掉头 */
-  border-radius: 4px;
-  cursor: zoom-in;
-  display: block;
-}
-
-
-/* 关键：只有一张图时，不要占满整行，限制最大宽度为一半 */
-.news-images:has(img:only-child) {
-  max-width: 50%;
-}
-
-.news-text {
-  color: #333;
-  font-size: 0.95em;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ===== 灯箱弹窗（唯一版本，已去重） ===== */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 999;
-  justify-content: center;
-  align-items: center;
-  cursor: zoom-out;
-}
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 4px;
-}
-
-/* 手机端：动态图片改为1列，每条动态2张图仍左右并排 */
-
-
-/* ===== 团队页（现在能正常在桌面端生效了） ===== */
-.team-intro { color: #555; margin: 1.5em 0 2em; }
-
+/* 团队页 */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2em 1em;
-  margin-bottom: 3em;
+  margin: 1.5em 0;
 }
-.team-card { text-align: center; }
+
+.team-member {
+  text-align: center;
+}
 
 .team-photo {
   width: 120px;
@@ -150,49 +114,174 @@ header.sub nav { font-size: 0.9em; }
   margin: 0 auto 0.8em;
   display: block;
 }
-.team-name { font-weight: 500; font-size: 0.95em; margin-bottom: 0.2em; line-height: 1.4; }
-.team-year { color: #999; font-size: 0.85em; }
 
-/* 手机端：头像区块 */
-@media (max-width: 480px) {
-  .profile {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-  .avatar { width: 140px; height: auto; }
+.team-name {
+  font-weight: bold;
+  font-size: 0.95em;
 }
 
-/* 首页学术动态：强制竖排 */
+.team-year {
+  color: #999;
+  font-size: 0.85em;
+  margin-top: 0.2em;
+}
+
+.team-topic {
+  color: #666;
+  font-size: 0.85em;
+  margin-top: 0.2em;
+}
+
+.team-list.alumni .team-name {
+  color: #666;
+}
+
+/* 学术动态：卡片网格 */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.news-card {
+  background: #fafafa;
+  border-radius: 6px;
+  overflow: hidden;
+  padding-bottom: 0.8em;
+}
+
+.news-images {
+  display: flex;
+  gap: 0.3em;
+}
+
+.news-img {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  cursor: zoom-in;
+  display: block;
+}
+
+.news-text {
+  font-size: 0.9em;
+  color: #333;
+  line-height: 1.6;
+  padding: 0.6em 0.8em 0;
+  margin: 0;
+}
+
+/* 首页：动态区块单独竖排 */
 #home-news-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 2em !important;
-}
-
-/* 每条动态内部：图片固定小尺寸，横向并排 */
-#home-news-grid .news-card {
   display: flex;
   flex-direction: column;
+  gap: 1.2em;
+}
+
+#home-news-grid .news-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  background: none;
+  padding-bottom: 0;
 }
 
 #home-news-grid .news-images {
-  display: flex !important;
-  gap: 0.5em;
-  margin-bottom: 0.8em;
+  width: 140px;
+  flex: none;
 }
 
 #home-news-grid .news-img {
-  width: 140px !important;
-  height: 140px !important;
+  width: 66px;
+  height: 66px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 4px;
   cursor: pointer;
-  flex: none !important;
+  flex: none;
 }
 
 #home-news-grid .news-text {
   font-size: 0.95em;
   color: #333;
   line-height: 1.6;
+  padding: 0;
+}
+
+/* 分页 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.6em;
+  margin-top: 2em;
+}
+
+.pagination button {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 0.4em 0.8em;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.pagination button.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+/* 灯箱（点击图片放大） */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid #eee;
+  font-size: 0.9em;
+  color: #888;
+}
+
+/* 手机端 */
+@media (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .avatar {
+    width: 140px;
+    height: 140px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  #home-news-grid .news-card {
+    flex-direction: row;
+  }
 }
