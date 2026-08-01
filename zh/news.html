@@ -323,8 +323,7 @@
   </div>
   <p class="news-text">2025年12月7日，张磊教授在东华大学参加“超时尚-本科教育教学改革未来范式研讨会”，并担任圆桌嘉宾。</p>  
 </div>
-  
-</div>
+
 </div>
 <div class="pagination" id="pagination"></div>
 </main>
@@ -341,6 +340,7 @@ function renderPage(page) {
   const grid = document.getElementById('news-grid');
   const cards = Array.from(grid.querySelectorAll('.news-card'));
   cards.sort((a, b) => b.dataset.date.localeCompare(a.dataset.date));
+  cards.forEach(c => grid.appendChild(c));
   const total = Math.ceil(cards.length / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
   cards.forEach((c, i) => c.style.display = (i >= start && i < start + ITEMS_PER_PAGE) ? '' : 'none');
