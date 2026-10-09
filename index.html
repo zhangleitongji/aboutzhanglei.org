@@ -1,67 +1,78 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>张磊 ZHANG Lei</title>
+<title>Zhang Lei</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="张磊，同济大学设计创意学院长聘教授，博士生导师，研究方向为设计史、设计文化、设计教育、设计人类学。">
+<meta name="description" content="ZHANG Lei, tenured professor and doctoral supervisor at the College of Design and Innovation, Tongji University. Research interests: design history, design culture, design education, design anthropology.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="profile">
-    <img src="zhanglei.JPG" alt="张磊" class="avatar">
+    <img src="zhanglei.JPG" alt="Zhang Lei" class="avatar">
     <div class="profile-text">
-      <h1>张磊 <span class="en">ZHANG Lei</span></h1>
+      <h1>Zhang Lei <span class="en">张磊</span></h1>
       <p class="title">
-        博士 · 长聘教授 · 博士生导师<br>
-        同济大学设计创意学院 副院长<br>
-        上海国际设计创新学院 副院长<br>
-        设计教育教学研究中心 主任
+        PhD · Tenured Professor · Doctoral Supervisor<br>
+        Vice Dean, College of Design and Innovation, Tongji University<br>
+        Vice Dean, Shanghai International College of Design and Innovation<br>
+        Director, Research Center for Design Education and Pedagogy
       </p>
     </div>
   </div>
   <nav>
-    <a href="zh/cv.html">简历</a> /
-    <a href="zh/research.html">研究</a> /
-    <a href="zh/publications.html">出版</a> /
-    <a href="zh/exhibitions.html">展览</a> /
-    <a href="zh/news.html">动态</a> /
-    <a href="zh/team.html">团队</a> /
-    <a href="zh/talks.html">活动</a> /
-    <a href="zh/contact.html">联系</a> /
-    <a href="en/index.html">EN</a>
+    <a href="cv.html">CV</a> /
+    <a href="research.html">Research</a> /
+    <a href="publications.html">Publications</a> /
+    <a href="exhibitions.html">Exhibitions</a> /
+    <a href="news.html">News</a> /
+    <a href="team.html">Team</a> /
+    <a href="talks.html">Talks</a> /
+    <a href="contact.html">Contact</a> /
+    <a href="zh/index.html">CN</a>
   </nav>
 </header>
 
 <main>
   <p>
-    张磊，博士，同济大学设计创意学院长聘教授，博士生导师，目前担任同济大学设计创意学院副院长，
-    上海国际设计创新学院副院长，院党委委员，教育部重大专项项目首席专家，艺术设计学（本科）专业主任，
-    设计历史与理论（硕士）方向负责人，设计教育教学研究中心主任，实验教学中心常务副主任；
-    同济大学设计与艺术学科、机械工程学科学位评定分委员会委员，设计学学科委员会委员，
-    兼任中国创造学会常务副秘书长、中国艺术人类学学会理事、上海市青少年创意设计院常务副院长等职。
-    他长期致力于设计史和设计文化研究，近年来还投身青少年设计教育的研究和普及。
-    主持国家及省部级项目5项，出版著作5本，发表国内外核心期刊论文70余篇。
-    曾担任环同济设计周总协调人、"新兴实践"设计教育与研究会议主席和世界设计之都大会主题展联合策展人，
-    并深度参与世界设计之都大会（WDCC，2022-2025）的筹备工作。<br><br>
-    长期招收设计史、设计教育、数据科学与知识工程等方向的博士、硕士研究生，并招聘相关方向的全职博士后研究人员。
+    ZHANG Lei, PhD, is a tenured full professor and doctoral supervisor at the College of Design and Innovation,
+    Tongji University. He currently serves as the Vice Dean of the College of Design and Innovation,
+    Vice Dean of the Shanghai International College of Design and Innovation,
+    Chief Expert of the Major Special Project on Philosophy and Social Sciences with Chinese Characteristics
+    funded by the Ministry of Education, Director of the Art and Design (Undergraduate) Major,
+    Head of the Design History and Theory (Master's) Program,
+    Director of the Research Center for Design Education and Pedagogy,
+    and Executive Deputy Director of the Experimental Teaching Center.
+    He is also a member of the Degree Assessment Sub-committee for Design and Arts and for Mechanical Engineering
+    and a member of the Design Discipline Committee at Tongji University.
+    He also holds positions as the Vice Chair of the China Creativity Society,
+    Council Member of the China Society for Anthropology of Arts,
+    and Executive Vice Dean of the Shanghai Youth Institute of Design and Innovation.
+    His research focuses on design history and design culture, and in recent years,
+    he has expanded his work to include K-12 design education research and promotion.
+    He has led 5 national and provincial-level projects, published 5 books,
+    and authored over 70 papers in leading Chinese and international academic journals.
+    He has served as the General Coordinator of the Pan-Tongji Design Week,
+    Chair of the "Emerging Practices" Conference on Design Education and Research,
+    and Co-Curator of the World Design Cities Conference Theme Exhibition,
+    and has been deeply involved in the preparation of the World Design Cities Conference (WDCC, 2022–2026).<br><br>
+    He recruits doctoral and master's students in design history, design education, data science and knowledge engineering,
+    and full-time postdoctoral researchers in related fields on an ongoing basis.
   </p>
 
   <section class="home-news">
-    <h2>学术动态</h2>
+    <h2>News</h2>
     <div class="news-grid" id="home-news-grid">
-      <!-- 内容由下方脚本自动从 news.html 读取，无需手动填写 -->
+      <!-- content is loaded automatically from news.html by the script below -->
     </div>
-    <p><a href="zh/news.html">查看全部动态 →</a></p>
+    <p><a href="news.html">View all news →</a></p>
   </section>
 </main>
 
-
-
 <script>
-fetch('zh/news.html')
+fetch('news.html')
   .then(response => response.text())
   .then(html => {
     const parser = new DOMParser();
@@ -72,14 +83,12 @@ fetch('zh/news.html')
     const homeGrid = document.getElementById('home-news-grid');
     topCards.forEach(card => {
       card.querySelectorAll('img').forEach(img => {
-        const src = img.getAttribute('src');
-        img.setAttribute('src', src.replace('../images/', 'images/'));
         img.removeAttribute('onclick');
       });
       homeGrid.appendChild(card);
     });
   })
-  .catch(err => console.log('动态加载失败：', err));
+  .catch(err => console.log('Failed to load news:', err));
 </script>
 
 </body>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>张磊 ZHANG Lei</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="张磊，同济大学设计创意学院长聘教授，博士生导师，研究方向为设计史、设计文化、设计教育、设计人类学。">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="profile">
+    <img src="../zhanglei.JPG" alt="张磊" class="avatar">
+    <div class="profile-text">
+      <h1>张磊 <span class="en">ZHANG Lei</span></h1>
+      <p class="title">
+        博士 · 长聘教授 · 博士生导师<br>
+        同济大学设计创意学院 副院长<br>
+        上海国际设计创新学院 副院长<br>
+        设计教育教学研究中心 主任
+      </p>
+    </div>
+  </div>
+  <nav>
+    <a href="cv.html">简历</a> /
+    <a href="research.html">研究</a> /
+    <a href="publications.html">出版</a> /
+    <a href="exhibitions.html">展览</a> /
+    <a href="news.html">动态</a> /
+    <a href="team.html">团队</a> /
+    <a href="talks.html">活动</a> /
+    <a href="contact.html">联系</a> /
+    <a href="../index.html">EN</a>
+  </nav>
+</header>
+
+<main>
+  <p>
+    张磊，博士，同济大学设计创意学院长聘教授，博士生导师，目前担任同济大学设计创意学院副院长，
+    上海国际设计创新学院副院长，院党委委员，教育部重大专项项目首席专家，艺术设计学（本科）专业主任，
+    设计历史与理论（硕士）方向负责人，设计教育教学研究中心主任，实验教学中心常务副主任；
+    同济大学设计与艺术学科、机械工程学科学位评定分委员会委员，设计学学科委员会委员，
+    兼任中国创造学会副理事长、中国艺术人类学学会理事、上海市青少年创意设计院常务副院长等职。
+    他长期致力于设计史和设计文化研究，近年来还投身青少年设计教育的研究和普及。
+    主持国家及省部级项目5项，出版著作5本，发表国内外核心期刊论文70余篇。
+    曾担任环同济设计周总协调人、"新兴实践"设计教育与研究会议主席和世界设计之都大会主题展联合策展人，
+    并深度参与世界设计之都大会（WDCC，2022–2026）的筹备工作。<br><br>
+    长期招收设计史、设计教育、数据科学与知识工程等方向的博士、硕士研究生，并招聘相关方向的全职博士后研究人员。
+  </p>
+
+  <section class="home-news">
+    <h2>学术动态</h2>
+    <div class="news-grid" id="home-news-grid">
+      <!-- 内容由下方脚本自动从 news.html 读取，无需手动填写 -->
+    </div>
+    <p><a href="news.html">查看全部动态 →</a></p>
+  </section>
+</main>
+
+
+
+<script>
+fetch('news.html')
+  .then(response => response.text())
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const cards = Array.from(doc.querySelectorAll('.news-card'));
+    cards.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+    const topCards = cards.slice(0, 3);
+    const homeGrid = document.getElementById('home-news-grid');
+    topCards.forEach(card => {
+      card.querySelectorAll('img').forEach(img => {
+        const src = img.getAttribute('src');
+        img.setAttribute('src', src);
+        img.removeAttribute('onclick');
+      });
+      homeGrid.appendChild(card);
+    });
+  })
+  .catch(err => console.log('动态加载失败：', err));
+</script>
+
+</body>
+</html>
